@@ -22,6 +22,8 @@ jobs:
 
       - name: Build project
         run: npm run build
+        env:
+          REPOSITORY_NAME: ${{ github.event.repository.name }}
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3

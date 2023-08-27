@@ -1,0 +1,9 @@
+{
+  "app": {
+    "title": "Score tracker",
+    "404": {
+      "title": "404 - Not found",
+      "description": "Whatever you are looking for is not here."
+    }
+  }
+}

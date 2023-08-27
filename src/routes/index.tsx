@@ -1,9 +1,9 @@
 import { Route, createHashRouter, createRoutesFromElements, Outlet } from "react-router-dom";
-import { Container, Stack } from "@mantine/core";
+import { Shell } from "../components/Shell";
 import { NotFound } from "./404";
 
 export const router = createHashRouter(createRoutesFromElements(
-  <Route element={<Container size="lg" children={<Stack><Outlet /></Stack>} />}>
+  <Route element={<Shell children={<Outlet />} />}>
     <Route index lazy={() => import("./General")} />
 
     <Route path="*" element={<NotFound />} />

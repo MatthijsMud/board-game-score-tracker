@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MantineProvider, ColorSchemeProvider, type ColorScheme } from "@mantine/core";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes";
+import { Internationalization } from "./i18n/Internationalization";
 
 function App() {
   const [colorScheme, setColorScheme] = useState<ColorScheme>("dark");
@@ -10,7 +11,9 @@ function App() {
   }
   return <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
     <MantineProvider withNormalizeCSS withGlobalStyles theme={{ colorScheme }}>
-      <RouterProvider router={router} />
+      <Internationalization>
+        <RouterProvider router={router} />
+      </Internationalization>
     </MantineProvider>
   </ColorSchemeProvider>
 }

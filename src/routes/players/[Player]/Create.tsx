@@ -1,5 +1,5 @@
 import { type FC } from "react";
-import { Button, Group, InputBase, NumberInput, Stack, TextInput } from "@mantine/core";
+import { Button, Group, TextInput } from "@mantine/core";
 import { useForm, zodResolver } from "@mantine/form";
 import { Player } from "../../../schema/Player";
 import { type ActionFunction, useSubmit, redirect } from "react-router-dom";
@@ -19,7 +19,7 @@ export const action: ActionFunction = async (props) => {
   return null;
 }
 
-const CreatePlayer: FC = (props) => {
+const CreatePlayer: FC = ({}) => {
   const validation = useForm({
     validate: zodResolver(Player),
     initialValues: {

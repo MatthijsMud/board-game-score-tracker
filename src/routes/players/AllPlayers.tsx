@@ -3,12 +3,15 @@ import { z } from "zod";
 import { Button } from "@mantine/core";
 import { type LoaderFunction, useLoaderData, Link } from "react-router-dom";
 import { IconPlus } from "@tabler/icons-react";
+import { Database } from "../../db";
 import { Player } from "../../schema/Player";
 
 const Players = z.array(Player);
 
-export const loader: LoaderFunction = () => {
-  const data = JSON.parse(localStorage.getItem("players") ?? "[]");
+export const loader: LoaderFunction = async () => {
+  const db = new Database();
+  const data = await db.players.limit(10).toArray();
+
   const result = Players.safeParse(data);
   if (result.success) {
     return result.data;
@@ -21,7 +24,9 @@ const AllPlayers: FC<AllPlayers.Props> = ({}) => {
   return <ul>
     {players.map((player, i) => {
       return <li key={i}>
-        {player.name}
+        <Link to={player.id?.toString() ?? ""}>
+          {player.name}
+        </Link>
       </li>
     })}
     <li>

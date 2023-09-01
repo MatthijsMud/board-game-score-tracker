@@ -1,6 +1,7 @@
 import { type FC } from "react";
 import { Button, Group, TextInput } from "@mantine/core";
 import { useForm, zodResolver } from "@mantine/form";
+import { Database } from "../../../db";
 import { Player } from "../../../schema/Player";
 import { type ActionFunction, useSubmit, redirect } from "react-router-dom";
 
@@ -9,12 +10,13 @@ export const action: ActionFunction = async (props) => {
     const json = await props.request.json();
     const result = Player.safeParse(json);
     if (result.success) {
-      localStorage.setItem("players", JSON.stringify(JSON.parse(localStorage.getItem("players") ?? "[]").concat(result.data)));
-      return redirect("..");
+      const db = new Database();
+      const id = await db.players.add(result.data);
+      return redirect(`../${id}`);
     }
   } 
   catch (error: unknown) {
-
+    console.error(error);
   }
   return null;
 }

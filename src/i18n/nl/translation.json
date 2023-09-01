@@ -4,6 +4,9 @@
     "404": {
       "title": "404 - Niet gevonden",
       "description": "Hetgeen dat je zoekt kon niet worden gevonden"
+    },
+    "players": {
+      "add": "Voeg een speler toe"
     }
   }
 }

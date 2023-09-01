@@ -2,6 +2,7 @@ import { type FC } from "react";
 import { z } from "zod";
 import { Grid, Stack, } from "@mantine/core";
 import { type LoaderFunction, useLoaderData } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { IconPlus, IconUser } from "@tabler/icons-react";
 import { Database } from "../../db";
 import { Player } from "../../schema/Player";
@@ -22,10 +23,11 @@ export const loader: LoaderFunction = async () => {
 
 const AllPlayers: FC<AllPlayers.Props> = ({}) => {
   const players: z.infer<typeof Players> = useLoaderData() as any;
+  const { t } = useTranslation();
   return <Stack>
     <Grid>
       <Grid.Col md={3} sm={4} xs={6}>
-        <CardLink to="new" title="Add new player">
+        <CardLink to="new" title={t("app.players.add")}>
           <IconPlus size="2.5em" />
         </CardLink>
         

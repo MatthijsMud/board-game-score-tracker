@@ -4,6 +4,9 @@
     "404": {
       "title": "404 - Not found",
       "description": "Whatever you are looking for is not here."
+    },
+    "players": {
+      "add": "Add new player"
     }
   }
 }

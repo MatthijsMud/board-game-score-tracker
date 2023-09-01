@@ -1,10 +1,11 @@
 import { type FC } from "react";
 import { z } from "zod";
-import { Button } from "@mantine/core";
+import { Button, Grid, Stack, } from "@mantine/core";
 import { type LoaderFunction, useLoaderData, Link } from "react-router-dom";
-import { IconPlus } from "@tabler/icons-react";
+import { IconPlus, IconUser, IconUsers } from "@tabler/icons-react";
 import { Database } from "../../db";
 import { Player } from "../../schema/Player";
+import { CardLink } from "../../components/CardLink";
 
 const Players = z.array(Player);
 
@@ -21,18 +22,23 @@ export const loader: LoaderFunction = async () => {
 
 const AllPlayers: FC<AllPlayers.Props> = ({}) => {
   const players: z.infer<typeof Players> = useLoaderData() as any;
-  return <ul>
-    {players.map((player, i) => {
-      return <li key={i}>
-        <Link to={player.id?.toString() ?? ""}>
-          {player.name}
-        </Link>
-      </li>
-    })}
-    <li>
-      <Button component={Link} to="new" leftIcon={<IconPlus size="1em"/>}>Add new player</Button>
-    </li>
-  </ul>
+  return <Stack>
+    <Grid>
+      <Grid.Col md={3} sm={4} xs={6}>
+        <CardLink to="new" title="Add new player">
+          <IconPlus size="2.5em" />
+        </CardLink>
+        
+      </Grid.Col>
+      {players.map(player => {
+        return <Grid.Col md={3} sm={4} xs={6} key={player.id}>
+          <CardLink to={player.id?.toString() ?? "" } title={player.name} >
+            <IconUser size="2.5em" />
+          </CardLink>
+        </Grid.Col>
+      })}
+    </Grid>
+  </Stack>
 }
 
 namespace AllPlayers {

@@ -35,7 +35,7 @@ export const CardLink: FC<CardLink.Props> = memo(({
   return <Card className={cx(classes.card, className)} component={Link} withBorder tabIndex={0} {...other}>
     <Card.Section>
       <AspectRatio ratio={ratio ?? (16 / 9)} sx={(theme)=>({ stroke: theme.fn.darken(theme.fn.themeColor(color ?? "", undefined, false), 0.1), backgroundColor: theme.fn.themeColor(color ?? "", undefined, false, true)})}>
-        <Image src={image} fit="cover" withPlaceholder placeholder={<div><IconPhoto size="2.5em" /></div>} />
+        <Image src={image} fit="cover" withPlaceholder placeholder={<div>{other.children ?? <IconPhoto size="2.5em" />}</div>} />
       </AspectRatio>
     </Card.Section>
     <Text weight={500} size="lg" mt="md" truncate>{title}</Text>

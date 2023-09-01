@@ -8,6 +8,7 @@ export const router = createHashRouter(createRoutesFromElements(
     <Route path="players">
       <Route index lazy={() => import("./players/AllPlayers")} />
       <Route path="new" lazy={() => import("./players/[Player]/Create")} />
+      <Route path=":playerId" lazy={() => import("./players/[Player]/General")} />
     </Route>
 
     <Route path="*" element={<NotFound />} />

@@ -1,8 +1,8 @@
 import { type FC } from "react";
 import { z } from "zod";
-import { Button, Grid, Stack, } from "@mantine/core";
-import { type LoaderFunction, useLoaderData, Link } from "react-router-dom";
-import { IconPlus, IconUser, IconUsers } from "@tabler/icons-react";
+import { Grid, Stack, } from "@mantine/core";
+import { type LoaderFunction, useLoaderData } from "react-router-dom";
+import { IconPlus, IconUser } from "@tabler/icons-react";
 import { Database } from "../../db";
 import { Player } from "../../schema/Player";
 import { CardLink } from "../../components/CardLink";

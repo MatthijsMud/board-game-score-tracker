@@ -12,7 +12,7 @@ const Players = z.array(Player);
 
 export const loader: LoaderFunction = async () => {
   const db = new Database();
-  const data = await db.players.limit(10).toArray();
+  const data = await db.players.toArray();
 
   const result = Players.safeParse(data);
   if (result.success) {
@@ -27,14 +27,14 @@ const AllPlayers: FC<AllPlayers.Props> = ({}) => {
   return <Stack>
     <Grid>
       <Grid.Col md={3} sm={4} xs={6}>
-        <CardLink to="new" title={t("app.players.add")}>
+        <CardLink to="new" ratio={1} title={t("app.players.add")}>
           <IconPlus size="2.5em" />
         </CardLink>
         
       </Grid.Col>
       {players.map(player => {
         return <Grid.Col md={3} sm={4} xs={6} key={player.id}>
-          <CardLink to={player.id?.toString() ?? "" } title={player.name} >
+          <CardLink to={player.id?.toString() ?? "" } ratio={1} title={player.name} image={player.image}>
             <IconUser size="2.5em" />
           </CardLink>
         </Grid.Col>

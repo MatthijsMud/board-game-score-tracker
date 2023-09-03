@@ -16,7 +16,6 @@ export const loader: LoaderFunction = async ({ params }) => {
       db.sessions.where({ playerIds: playerId }).toArray(),
     ]);
   });
-  console.log(player, sessions);
   return [player, sessions];
 }
 
@@ -32,7 +31,7 @@ export const Component: FC<{ children?: ReactNode }> = ({}) => {
   return <Stack>
     <Group position="apart">
       <Group>
-        <Avatar>
+        <Avatar src={data[0].image}>
 
         </Avatar>
         <Title order={2}>

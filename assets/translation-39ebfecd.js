@@ -1,0 +1,1 @@
+const e={404:{title:"404 - Not found",description:"Whatever you are looking for is not here."},title:"Score tracker",players:{title:"Players",add:"Add new player"},games:{title:"Games",search:"Search…"},locations:{title:"Locations",add:"Add new location"}},t={app:e};export{e as app,t as default};

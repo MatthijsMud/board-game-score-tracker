@@ -1,0 +1,1 @@
+const e={404:{title:"404 - Niet gevonden",description:"Hetgeen dat je zoekt kon niet worden gevonden"},title:"Score bijhouder",players:{title:"Spelers",add:"Voeg een speler toe"},games:{title:"Spellen",search:"Zoeken…"},locations:{title:"Locaties"}},t={app:e};export{e as app,t as default};

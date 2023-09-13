@@ -1,0 +1,1 @@
+import{z as n}from"./index-45b59163.js";const a=n.number().brand("ExpansionId");n.object({id:a.optional(),name:n.string()}).brand("Expansion");const o=n.number().brand("GameId"),e=n.object({id:o.optional(),name:n.string(),expansions:n.array(a)}).brand("Game");export{e as G};

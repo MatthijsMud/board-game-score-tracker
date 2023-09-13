@@ -1,0 +1,1 @@
+import{z as r}from"./index-45b59163.js";const e=r.number().brand("PlayerId"),a=r.object({id:e.optional(),name:r.string().nonempty(),image:r.string().url().optional()}).describe("").brand("Player");export{a as P};

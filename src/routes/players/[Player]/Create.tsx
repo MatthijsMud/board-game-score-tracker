@@ -60,7 +60,6 @@ const CreatePlayer: FC = ({}) => {
   return <form onSubmit={validation.onSubmit((values) => { submit(values, {method: "post", encType: "application/json" })})}>
     <Stack>
       <TextInput 
-      name="name"
         label="Name" 
         description="Name used to identify the player"
         withAsterisk

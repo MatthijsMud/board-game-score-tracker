@@ -1,6 +1,5 @@
 import { 
   type FC,
-  type ReactNode
 } from "react";
 
 import {
@@ -30,8 +29,8 @@ import {
 } from "../../../schema/Game";
 
 
-export const action: ActionFunction = async (props) => {
-  const result = Game.safeParse(await props.request.json());
+export const action: ActionFunction = async ({ request }) => {
+  const result = Game.safeParse(await request.json());
   if (result.success) {
 
     const db = new Database();
@@ -42,7 +41,7 @@ export const action: ActionFunction = async (props) => {
   return null;
 }
 
-const CreateGame: FC<CreateGame.Props> = ({children}) => {
+const CreateGame: FC<CreateGame.Props> = ({}) => {
   const validation = useForm({
     validate: zodResolver(Game),
     initialValues: {
@@ -68,7 +67,6 @@ const CreateGame: FC<CreateGame.Props> = ({children}) => {
 
 namespace CreateGame {
   export type Props = Readonly<{
-    children?: ReactNode;
   }>;
 }
 

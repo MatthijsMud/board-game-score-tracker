@@ -9,6 +9,10 @@
       "title": "Spelers",
       "add": "Voeg een speler toe"
     },
+    "games": {
+      "title": "Spellen",
+      "search": "Zoeken…"
+    },
     "locations": {
       "title": "Locaties"
     }

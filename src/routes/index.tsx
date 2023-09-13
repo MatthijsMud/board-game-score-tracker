@@ -11,6 +11,11 @@ export const router = createHashRouter(createRoutesFromElements(
       <Route path=":playerId" lazy={() => import("./players/[Player]/General")} />
       <Route path=":playerId/edit" lazy={() => import("./players/[Player]/Update")} />
     </Route>
+    <Route path="games">
+      <Route index lazy={() => import("./games/AllGames")} />
+      <Route path="new" lazy={() => import("./games/[Game]/Create")} />
+      <Route path=":gameId" lazy={() => import("./games/[Game]/General")} />
+    </Route>
     <Route path="locations">
       <Route index lazy={() => import("./locations/AllLocations")} />
       <Route path="new" lazy={() => import("./locations/[Location]/Create")} />

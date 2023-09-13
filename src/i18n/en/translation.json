@@ -9,6 +9,10 @@
       "title": "Players",
       "add": "Add new player"
     },
+    "games": {
+      "title": "Games",
+      "search": "Search…"
+    },
     "locations": {
       "title": "Locations",
       "add": "Add new location"
